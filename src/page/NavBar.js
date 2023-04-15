@@ -16,6 +16,9 @@ export default function NavBar() {
     <Link to ="/MovieList">
         <p>MovieList</p>
     </Link>
+    <Link to ="/movie/detals">
+      <p>MovieDetails</p>
+    </Link>
 
 
     </div>

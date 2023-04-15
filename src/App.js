@@ -106,6 +106,7 @@ const App = () => {
 
   const [bytitle, setBytitle] = useState("");
   const [byRating, setByRating] = useState(0);
+  const [show, setShow] = useState(false)
   const add = (newMovie) => {
     setMovies([...movies, newMovie]);
   };
@@ -121,18 +122,18 @@ const App = () => {
         <Route
           path="/AddMovie"
           element={
-            <Add bytitle={bytitle} byRating={byRating} setMovies={setMovies} />
+            <Add Add={add} movies={movies} setShow={setShow} setMovies={setMovies} />
           }
         />
         <Route
           path="/MovieCard"
-          element={<MovieCard movies={movies} Add={add} />}
+          element={<MovieCard movies={movies} Add={add} setShow={setShow} />}
         />
         <Route
           path="/MovieList"
           element={<MovieList movies={movies} Add={add} />}
         />
-        <Route path="/movie/details" element={<MovieDetails />} />
+        <Route path="/MovieDetails/:id" element={<MovieDetails />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </div>
